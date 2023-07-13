@@ -2,7 +2,7 @@ name: Check Release
 on:
   push:
     branches:
-      - main
+      - "*"
   pull_request:
     branches:
       - main
@@ -61,3 +61,7 @@ jobs:
         with:
           name: papyri_lab-releaser-dist-${{ github.run_number }}
           path: .jupyter_releaser_checkout/dist
+
+      - name: Debugging with tmate
+        if: ${{ always() }}
+        uses: mxschmitt/action-tmate@v3.16
