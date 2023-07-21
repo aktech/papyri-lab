@@ -42,6 +42,7 @@ jobs:
           key: ${{ runner.os }}-linkcheck-${{ hashFiles('**/.md') }}-md-links
           restore-keys: |
             ${{ runner.os }}-linkcheck-
+      - uses: jupyterlab/maintainer-tools/.github/actions/base-setup@v1
       - name: Upgrade packaging dependencies
         run: |
           pip install --upgrade pip setuptools wheel jupyter-packaging~=0.12.3 --user
