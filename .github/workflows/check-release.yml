@@ -2,7 +2,7 @@ name: Check Release
 on:
   push:
     branches:
-      - main
+      - "*"
   pull_request:
     branches:
       - main
@@ -21,11 +21,11 @@ jobs:
         with:
           python-version: 3.9
           architecture: 'x64'
-      - name: Install node
-        uses: actions/setup-node@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.7.0
         with:
-          node-version: '14.x'
-      
+          node-version: 16
       
       - name: Get pip cache dir
         id: pip-cache
